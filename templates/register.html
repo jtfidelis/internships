@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Register an Internship Opportunity</h1> <!-- #baguhin -->
+<form action="{{ url_for('processing') }}" method="post">
+    <label for="p_type">Type of Program:</label> <!-- #baguhin -->
+    <select name="program_type" id="p_type" required> <!-- #baguhin -->
+        <option disabled selected value>...</option>
+        <option value="Business Development">Business Development</option> <!-- #baguhin -->
+        <option value="Computer Science">Computer Science</option> <!-- #baguhin -->
+        <option value="Sports">Sports</option> <!-- #baguhin -->
+        <option value="Medicine">Medicine</option> <!-- #baguhin -->
+        <option value="Economics">Economics</option> <!-- #baguhin -->
+        <option value="Statistics">Statistics</option> <!-- #baguhin -->
+        <option value="Education">Education</option> <!-- #baguhin -->
+        <option value="Marketing">Marketing</option> <!-- #baguhin -->
+        <option value="Culinary">Culinary</option> <!-- #baguhin -->
+    </select><br><br>
+    <label for="p_name">Name of Program:</label> <!-- #baguhin -->
+    <input type="text" name="program_name" id="p_name" required><br><br> <!-- #baguhin -->
+    <label for="p_duration">Duration:</label> <!-- #baguhin -->
+    <input type="text" name="program_duration" id="p_duration"><br><br> <!-- #baguhin -->
+    <label for="p_salary">Salary:</label> <!-- #baguhin -->
+    <input type="number" name="program_salary" id="p_salary"><br><br> <!-- #baguhin -->
+    <label for="p_url">Image URL:</label>
+    <input type="url" name="program_url" id="p_url"><br> <!-- #baguhin -->
+    <textarea name="program_desc" placeholder="Tell something about your internship..." cols="30" rows="10"></textarea><br> <!-- #baguhin -->
+    <input type="submit" value="Register!">
+</form>
+{% endblock %}

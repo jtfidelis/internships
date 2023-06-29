@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Register a New Internship Program</h1>
+<form action="{{ url_for('update') }}" method="post">
+    <input type="hidden" name="program_id" value="{{ program.id }}">
+    <label for="p_type">Type of Program:</label>
+    <select name="program_type" id="p_type" required>
+        <option disabled selected value>...</option>
+        {% if program.internship_type == "Business Development" %}
+        <option value="Business Development" selected>Business Development</option>
+        <option value="Computer Science">Computer Science</option>
+        <option value="Sports">Sports</option>
+        <option value="Medicine">Medicine</option>
+        <option value="Economics">Economics</option>
+        <option value="Statistics">Statistics</option>
+        <option value="Education">Education</option>
+        <option value="Marketing">Marketing</option>
+        <option value="Culinary">Culinary</option>
+        {% elif program.internship_type == "Computer Science" %}
+        <option value="Business Development">Business Development</option>
+        <option value="Computer Science" selected>Computer Science</option>
+        <option value="Sports">Sports</option>
+        <option value="Medicine">Medicine</option>
+        <option value="Economics">Economics</option>
+        <option value="Statistics">Statistics</option>
+        <option value="Education">Education</option>
+        <option value="Marketing">Marketing</option>
+        <option value="Culinary">Culinary</option>
+        {% elif program.internship_type == "Sports" %}
+        <option value="Business Development">Business Development</option>
+        <option value="Computer Science">Computer Science</option>
+        <option value="Sports" selected>Sports</option>
+        <option value="Medicine">Medicine</option>
+        <option value="Economics">Economics</option> <!-- #baguhin -->
+        <option value="Statistics">Statistics</option>
+        <option value="Education">Education</option>
+        <option value="Marketing">Marketing</option>
+        <option value="Culinary">Culinary</option> <!-- #baguhin -->
+        {% elif program.internship_type == "Medicine" %}
+        <option value="Business Development">Business Development</option> <!-- #baguhin -->
+        <option value="Computer Science">Computer Science</option> <!-- #baguhin -->
+        <option value="Sports">Sports</option> <!-- #baguhin -->
+        <option value="Medicine" selected>Medicine</option> <!-- #baguhin -->
+        <option value="Economics">Economics</option> <!-- #baguhin -->
+        <option value="Statistics">Statistics</option> <!-- #baguhin -->
+        <option value="Education">Education</option> <!-- #baguhin -->
+        <option value="Marketing">Marketing</option> <!-- #baguhin -->
+        <option value="Culinary">Culinary</option> <!-- #baguhin -->
+        {% elif program.internship_type == "Economics" %} <!-- #baguhin -->
+        <option value="Business Development">Business Development</option> <!-- #baguhin -->
+        <option value="Computer Science">Computer Science</option> <!-- #baguhin -->
+        <option value="Sports">Sports</option> <!-- #baguhin -->
+        <option value="Medicine">Medicine</option> <!-- #baguhin -->
+        <option value="Economics" selected>Economics</option> <!-- #baguhin -->
+        <option value="Statistics">Statistics</option> <!-- #baguhin -->
+        <option value="Education">Education</option> <!-- #baguhin -->
+        <option value="Marketing">Marketing</option> <!-- #baguhin -->
+        <option value="Culinary">Culinary</option> <!-- #baguhin -->
+        {% elif program.internship_type == "Statistics" %} <!-- #baguhin -->
+        <option value="Business Development">Business Development</option> <!-- #baguhin -->
+        <option value="Computer Science">Computer Science</option> <!-- #baguhin -->
+        <option value="Sports">Sports</option> <!-- #baguhin -->
+        <option value="Medicine">Medicine</option> <!-- #baguhin -->
+        <option value="Economics">Economics</option> <!-- #baguhin -->
+        <option value="Statistics" selected>Statistics</option> <!-- #baguhin -->
+        <option value="Education">Education</option> <!-- #baguhin -->
+        <option value="Marketing">Marketing</option> <!-- #baguhin -->
+        <option value="Culinary">Culinary</option> <!-- #baguhin -->
+        {% elif program.internship_type == "Education" %} <!-- #baguhin -->
+        <option value="Business Development">Business Development</option> <!-- #baguhin -->
+        <option value="Computer Science">Computer Science</option> <!-- #baguhin -->
+        <option value="Sports">Sports</option> <!-- #baguhin -->
+        <option value="Medicine">Medicine</option> <!-- #baguhin -->
+        <option value="Economics">Economics</option> <!-- #baguhin -->
+        <option value="Statistics">Statistics</option> <!-- #baguhin -->
+        <option value="Education" selected>Education</option> <!-- #baguhin -->
+        <option value="Marketing">Marketing</option> <!-- #baguhin -->
+        <option value="Culinary">Culinary</option> <!-- #baguhin -->
+        {% elif program.internship_type == "Marketing" %} <!-- #baguhin -->
+        <option value="Business Development">Business Development</option> <!-- #baguhin -->
+        <option value="Computer Science">Computer Science</option> <!-- #baguhin -->
+        <option value="Sports">Sports</option> <!-- #baguhin -->
+        <option value="Medicine">Medicine</option> <!-- #baguhin -->
+        <option value="Economics">Economics</option> <!-- #baguhin -->
+        <option value="Statistics">Statistics</option> <!-- #baguhin -->
+        <option value="Education">Education</option> <!-- #baguhin -->
+        <option value="Marketing" selected>Marketing</option> <!-- #baguhin -->
+        <option value="Culinary">Culinary</option> <!-- #baguhin -->
+        {% elif program.internship_type == "Culinary" %} <!-- #baguhin -->
+        <option value="Business Development">Business Development</option> <!-- #baguhin -->
+        <option value="Computer Science">Computer Science</option> <!-- #baguhin -->
+        <option value="Sports">Sports</option> <!-- #baguhin -->
+        <option value="Medicine">Medicine</option> <!-- #baguhin -->
+        <option value="Economics">Economics</option> <!-- #baguhin -->
+        <option value="Statistics">Statistics</option> <!-- #baguhin -->
+        <option value="Education">Education</option> <!-- #baguhin -->
+        <option value="Marketing">Marketing</option> <!-- #baguhin -->
+        <option value="Culinary" selected>Culinary</option> <!-- #baguhin -->
+        {% endif %}
+    </select><br><br>
+    <label for="p_name">Name of Program:</label> <!-- #baguhin -->
+    <input type="text" name="program_name" id="p_name" value="{{ program.name }}" required><br><br> <!-- #baguhin -->
+    <label for="p_duration">Duration:</label> <!-- #baguhin -->
+    <input type="text" name="pet_duration" id="p_duration" value="{{ program.duration }}"><br><br> <!-- #baguhin -->
+    <label for="p_salary">Salary:</label> <!-- #baguhin -->
+    <input type="number" name="program_salary" id="p_salary" value="{{ program.salary }}"><br><br> <!-- #baguhin -->
+    <label for="p_url">Image URL:</label> <!-- #baguhin -->
+    <input type="url" name="program_url" id="p_url" value="{{ program.url }}"><br> <!-- #baguhin -->
+    <textarea name="program_desc" cols="30" rows="10">{{ program.description }}</textarea><br> <!-- #baguhin -->
+    <input type="submit" value="Update!">
+</form>
+{% endblock %}
